@@ -1,0 +1,9 @@
+language: csharp
+
+sudo: false
+
+script: 
+  - ./build.sh Default
+  
+before_install:
+ - chmod +x build.sh

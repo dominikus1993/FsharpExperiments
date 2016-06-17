@@ -1,0 +1,10 @@
+source https://www.nuget.org/api/v2
+nuget FSharp.Core
+nuget FAKE
+nuget Suave
+nuget FsCheck.Xunit
+nuget FsUnit
+nuget FsUnit.xUnit
+nuget xunit.runner.visualstudio
+nuget xunit.runner.console
+nuget Unquote
