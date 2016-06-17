@@ -5,4 +5,4 @@ module `` Sentiment Analyzer Tests `` =
 
     [<Fact>]
     let ``truth``() =
-        1 |> should equal 1
+        2 |> should equal 2
