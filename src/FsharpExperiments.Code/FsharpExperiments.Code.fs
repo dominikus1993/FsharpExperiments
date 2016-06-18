@@ -1,4 +1,4 @@
 namespace FsharpExperiments.Code
 
-type FsharpExperimentsCode() = 
-    member this.X = "F#"
+module Euler1 = 
+    let solve (start, quantity) = 2
