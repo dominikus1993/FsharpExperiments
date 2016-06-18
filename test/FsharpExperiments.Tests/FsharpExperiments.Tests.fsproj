@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FsharpExperiments.Tests.fs" />
+    <Compile Include="NinetyNine.Tests.fs" />
     <None Include="Script.fsx" />
   </ItemGroup>
    <ItemGroup>

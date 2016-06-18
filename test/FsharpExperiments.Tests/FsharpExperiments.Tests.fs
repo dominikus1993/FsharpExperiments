@@ -3,7 +3,7 @@ open Xunit
 open FsUnit.Xunit
 open FsharpExperiments.Code
 
-module `` Sentiment Analyzer Tests `` = 
+module `` Euler solution tests `` = 
 
     [<Fact>]
     let ``Euler 1 test``() =
