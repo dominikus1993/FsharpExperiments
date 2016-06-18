@@ -45,6 +45,11 @@
     <Compile Include="FsharpExperiments.Tests.fs" />
     <None Include="Script.fsx" />
   </ItemGroup>
+      <ProjectReference Include="..\..\src\FsharpExperiments.Code\FsharpExperiments.Code.fsproj">
+      <Name>FsharpExperiments.Code</Name>
+      <Project>{877d4c4b-c486-4173-a29b-421242df51ac}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
   </PropertyGroup>
