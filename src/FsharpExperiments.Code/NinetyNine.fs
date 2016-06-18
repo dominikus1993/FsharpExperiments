@@ -1,3 +1,3 @@
 namespace FsharpExperiments.Code.NinetyNine
     module First = 
-        let solve(list) = 2
+        let solve(list) = list |> List.rev |> List.head
