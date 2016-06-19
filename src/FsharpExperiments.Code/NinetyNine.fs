@@ -6,5 +6,5 @@ namespace FsharpExperiments.Code.NinetyNine
         let solve(list) = list |> List.rev |> List.tail |> List.head
 
     module Problem3 =
-        let solve(list, elementIndex) = 
-            list |> List.nth elementIndex
+        let solve<'a>(list : 'a list, elementIndex : int) = 
+            List.nth list (elementIndex - 1)

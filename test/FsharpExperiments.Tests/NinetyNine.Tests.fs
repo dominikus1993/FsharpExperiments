@@ -2,7 +2,7 @@ namespace FsharpExperiments.Tests
 open Xunit
 open FsUnit.Xunit
 open FsharpExperiments.Code.NinetyNine
-
+open System
 module `` NinetyNine problems solution tests`` = 
     [<Fact>]
     let `` Problem 1``() =
@@ -17,4 +17,4 @@ module `` NinetyNine problems solution tests`` =
     [<Fact>]
     let `` Problem3``() =
         Problem3.solve([1; 2; 3], 2) |> should equal 2
-        Problem3.solve("fsharp", 5) |>should equal "r" 
+        Problem3.solve<char>(("fsharp".ToCharArray() |> Array.toList), 5) |> should equal 'r'
