@@ -18,3 +18,8 @@ module `` NinetyNine problems solution tests`` =
     let `` Problem3``() =
         Problem3.solve([1; 2; 3], 2) |> should equal 2
         Problem3.solve<char>(("fsharp".ToCharArray() |> Array.toList), 5) |> should equal 'r'
+    
+    [<Fact>]
+    let `` Problem4``() =
+        Problem4.solve([1; 2; 3]) |> should equal 3
+        Problem4.solve<char>(("fsharp".ToCharArray() |> Array.toList)) |> should equal 6
