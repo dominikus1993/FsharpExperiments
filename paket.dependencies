@@ -1,5 +1,4 @@
 source https://www.nuget.org/api/v2
-nuget FSharp.Core
 nuget FAKE
 nuget Suave
 nuget FsCheck.Xunit
