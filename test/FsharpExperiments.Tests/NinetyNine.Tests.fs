@@ -3,6 +3,8 @@ open Xunit
 open FsUnit.Xunit
 open FsharpExperiments.Code.NinetyNine
 open System
+open Swensen.Unquote
+open FsCheck
 module `` NinetyNine problems solution tests`` = 
     [<Fact>]
     let `` Problem 1``() =
@@ -20,6 +22,15 @@ module `` NinetyNine problems solution tests`` =
         Problem3.solve<char>(("fsharp".ToCharArray() |> Array.toList), 5) |> should equal 'r'
     
     [<Fact>]
-    let `` Problem4``() =
+    let `` Problem 4``() =
         Problem4.solve([1; 2; 3]) |> should equal 3
         Problem4.solve<char>(("fsharp".ToCharArray() |> Array.toList)) |> should equal 6
+    
+    [<Fact>]
+    let `` Problem 5``() =
+        //Unquote Test
+        test <@ ( Problem5.solve([1; 2; 3]) ) = [3;2;1] @>
+        test <@ ( Problem5.solve(["x"; "y"; "z"]) ) = ["z"; "y"; "x";] @>
+        //FsCheck randomize test
+        let testRes(xs:list<int>) = ( Problem5.solve(xs)) = (xs |> List.rev)
+        Check.QuickThrowOnFailure testRes

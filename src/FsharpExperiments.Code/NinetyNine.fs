@@ -16,3 +16,7 @@ namespace FsharpExperiments.Code.NinetyNine
                 | [] -> acc
                 | head :: tail -> length(tail, acc + 1)
             length(list, 0)
+
+    module Problem5 =
+        let solve<'a>(list : 'a list) =
+            list |> List.rev
