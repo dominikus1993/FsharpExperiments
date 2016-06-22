@@ -34,3 +34,11 @@ module `` NinetyNine problems solution tests`` =
         //FsCheck randomize test
         let testRes(xs:list<int>) = ( Problem5.solve(xs)) = (xs |> List.rev)
         Check.QuickThrowOnFailure testRes
+
+    [<Fact>]
+    let `` Problem 6``() =
+        //Unquote Test
+        test <@ ( Problem6.solve([1; 2; 3]) ) = false @>
+        test <@ ( Problem6.solve([1;2;4;8;16;8;4;2;1]) ) = true@>
+        //FsCheck randomize test
+    

@@ -20,3 +20,7 @@ namespace FsharpExperiments.Code.NinetyNine
     module Problem5 =
         let solve<'a>(list : 'a list) =
             list |> List.rev
+
+    module Problem6 =
+        let solve<'a when 'a : equality>(list : 'a list) =
+           list = (list |> List.rev)
