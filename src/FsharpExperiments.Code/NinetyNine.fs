@@ -24,3 +24,15 @@ namespace FsharpExperiments.Code.NinetyNine
     module Problem6 =
         let solve<'a when 'a : equality>(list : 'a list) =
            list = (list |> List.rev)
+
+    module Problem7 =
+        type 'a NastedList = List of 'a NastedList list | Elem of 'a
+        
+        let solve<'a>(nastedList : 'a NastedList) =
+            let rec matcher(list, acc) =
+                match list with
+                |Elem e -> acc @ [e]
+                |List l -> 
+                    l |> List.fold(fun acc x -> matcher(x, acc)) acc
+
+            matcher(nastedList, [])

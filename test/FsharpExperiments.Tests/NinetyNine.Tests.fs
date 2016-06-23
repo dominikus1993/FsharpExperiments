@@ -5,6 +5,8 @@ open FsharpExperiments.Code.NinetyNine
 open System
 open Swensen.Unquote
 open FsCheck
+open Problem7
+
 module `` NinetyNine problems solution tests`` = 
     [<Fact>]
     let `` Problem 1``() =
@@ -42,3 +44,10 @@ module `` NinetyNine problems solution tests`` =
         test <@ ( Problem6.solve([1;2;4;8;16;8;4;2;1]) ) = true@>
         //FsCheck randomize test
     
+    [<Fact>]
+    let `` Problem 7``() =
+        //Unquote Test
+        test <@ ( Problem7.solve<int>(List [Elem 1; List [Elem 2; List [Elem 3; Elem 4]; Elem 5]]) ) = [1;2;3;4;5] @>
+        test <@ (Problem7.solve<int>(Elem 1)) = [1] @>
+        test <@ (Problem7.solve<int>(List[])) = [] @>
+        //FsCheck randomize test
