@@ -51,3 +51,12 @@ module `` NinetyNine problems solution tests`` =
         test <@ (Problem7.solve<int>(Elem 1)) = [1] @>
         test <@ (Problem7.solve<int>(List[])) = [] @>
         //FsCheck randomize test
+
+    [<Fact>]
+    let `` Problem 8``() =
+        //Unquote Test
+        test <@ ( Problem8.solve([1;1;1;2;3;3;4;4;4;4;4;5;5;5;5;5])) = [1;2;3;4;5] @>
+        test <@ (Problem8.solve([1])) = [1] @>
+        test <@ (Problem8.solve([])) = [] @>
+        test <@ (Problem8.solve(["a";"a";"b";"b";"a";"a"])) = ["a";"b";"a"] @>
+        //FsCheck randomize test

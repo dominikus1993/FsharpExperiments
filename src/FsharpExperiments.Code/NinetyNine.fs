@@ -36,3 +36,17 @@ namespace FsharpExperiments.Code.NinetyNine
                     l |> List.fold(fun acc x -> matcher(x, acc)) acc
 
             matcher(nastedList, [])
+
+    module Problem8 =
+        let rec private compress(list, acc) =
+            match list with
+            |[] -> acc |> List.rev
+            |head :: tail when (acc |> List.length) = 0 -> 
+                compress(tail, [head])
+            |head :: tail when head <> (acc |> List.head)-> 
+                compress(tail, head :: acc)
+            |head :: tail -> 
+                compress(tail, acc)
+
+        let solve(list) = 
+            compress(list, [])
