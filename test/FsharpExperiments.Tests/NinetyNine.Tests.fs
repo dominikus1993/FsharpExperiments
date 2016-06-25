@@ -60,3 +60,10 @@ module `` NinetyNine problems solution tests`` =
         test <@ (Problem8.solve([])) = [] @>
         test <@ (Problem8.solve(["a";"a";"b";"b";"a";"a"])) = ["a";"b";"a"] @>
         //FsCheck randomize test
+
+    [<Fact>]
+    let `` Problem 9``() =
+        //Unquote Test
+        test <@ ( Problem9.solve<char>(['a'; 'a'; 'a'; 'a'; 'b'; 'c'; 'c'; 'a'; 'a'; 'd'; 'e'; 'e'; 'e'; 'e'])) = [['a'; 'a'; 'a'; 'a']; ['b']; ['c'; 'c']; ['a'; 'a']; ['d'];['e'; 'e'; 'e'; 'e']] @>
+        test <@ ( Problem9.solve<int>([1;1;1;2;2;2])) = [[1;1;1];[2;2;2]] @>
+        //FsCheck randomize test

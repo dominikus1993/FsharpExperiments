@@ -50,3 +50,13 @@ namespace FsharpExperiments.Code.NinetyNine
 
         let solve(list) = 
             compress(list, [])
+
+    module Problem9 =
+        let rec private pack(x, acc) =
+            match acc with
+            |(head_of_head :: head) :: tail when x = head_of_head ->
+                 (x :: head_of_head :: head) :: tail
+            |col -> [x] :: col
+
+        let solve<'a when 'a : equality>(collection : 'a list) : 'a list list =
+            collection |> List.fold(fun acc x -> pack(x, acc)) [] |> List.rev
