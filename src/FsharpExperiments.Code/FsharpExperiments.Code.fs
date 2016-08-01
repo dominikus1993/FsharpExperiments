@@ -3,12 +3,24 @@ namespace FsharpExperiments.Code
 module Euler1 = 
     let solve (start, quantity) = 
         [start..quantity] |> List.filter(fun x -> x % 5 = 0 || x % 3 = 0) |> List.sum
-        
+
 module Euler2 = 
     let private fibSeqGenerator() =  Seq.unfold(fun (x, y) -> Some(x, (y, x + y))) (0,1)
 
     let solve(quantity : int) =
         fibSeqGenerator() |>  Seq.takeWhile(fun x -> x < quantity) |> Seq.filter(fun x -> x % 2 = 0) |> Seq.sum
+
+module Euler3 =
+    let private findFactor(number : int64) = 
+        [2L..int64(sqrt (double number))] |> Seq.filter(fun x -> number % x = 0L)
+
+    let private isPrime = function
+        |num when num < 2L -> false
+        |num when num = 2L -> true
+        |num -> [2L..int64(sqrt (double num))] |> Seq.filter(fun x -> num % x = 0L) |> Seq.length = 0
+    
+    let solve(number : int64) =
+        [2L..(number - 1L)] |> Seq.filter(fun x -> number % x = 0L) |> Seq.filter(fun x -> isPrime(x)) |> Seq.max
 
 module Euler7 =
     let private isPrime(num : int) =
