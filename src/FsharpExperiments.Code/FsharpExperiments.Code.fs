@@ -44,6 +44,14 @@ module Euler5 =
     let solve(_from, _to) =
         [_from.._to] |> List.reduce(fun acc x -> lcm x acc)
 
+module Euler6 =
+    let private  sumSquare nums = nums |> List.sumBy(fun x -> x * x)
+    let private squareSum nums = (float (nums |> List.sum)) ** 2.0
+
+    let solve(_from, _to) =
+        let nums = [_from.._to]
+        (int (squareSum nums)) - sumSquare nums
+
 module Euler7 =
     let private isPrime(num : int) =
         match num with
