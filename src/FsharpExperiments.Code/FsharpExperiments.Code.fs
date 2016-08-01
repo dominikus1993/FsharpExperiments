@@ -22,6 +22,12 @@ module Euler3 =
     let solve(number : int64) =
         [2L..(int64(sqrt (double number)))] |> Seq.filter(fun x -> number % x = 0L) |> Seq.filter(fun x -> isPrime(x)) |> Seq.max
 
+module Euler4 =
+    let private isPalindrom chars1 chars2 =
+        chars1 = chars2
+    let solve(_from:int, _to : int) =
+        seq { for x in _from.._to do for y in _from.._to do yield x * y } |> Seq.filter(fun x -> isPalindrom <| x.ToString().ToCharArray() <| (x.ToString().ToCharArray() |> Array.rev )) |> Seq.max
+
 module Euler7 =
     let private isPrime(num : int) =
         match num with
