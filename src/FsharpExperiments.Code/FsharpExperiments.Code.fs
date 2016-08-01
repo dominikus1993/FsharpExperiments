@@ -28,6 +28,22 @@ module Euler4 =
     let solve(_from:int, _to : int) =
         seq { for x in _from.._to do for y in _from.._to do yield x * y } |> Seq.filter(fun x -> isPalindrom <| x.ToString().ToCharArray() <| (x.ToString().ToCharArray() |> Array.rev )) |> Seq.max
 
+module Euler5 =
+    let rec gcd num1 num2 =
+        if num1 <> num2 then
+            if num1 > num2 then
+                gcd (num1 - num2) (num2)
+            else
+                gcd (num1) (num2 - num1)
+        else
+            num1
+      
+    let lcm num1 num2 =
+        (num1 * num2) / gcd num1 num2
+    
+    let solve(_from, _to) =
+        [_from.._to] |> List.reduce(fun acc x -> lcm x acc)
+
 module Euler7 =
     let private isPrime(num : int) =
         match num with
