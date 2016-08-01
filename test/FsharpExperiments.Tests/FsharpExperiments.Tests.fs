@@ -8,6 +8,10 @@ module `` Euler solution tests `` =
     [<Fact>]
     let ``Euler 1 test``() =
         Euler1.solve(1,1001) |>  should equal 234168
+
+    [<Fact>]
+    let ``Euler 2 test``() =
+        Euler2.solve(4000000) |>  should equal 4613732
     
     [<Fact>]
     let  ``Euler8 test``() =

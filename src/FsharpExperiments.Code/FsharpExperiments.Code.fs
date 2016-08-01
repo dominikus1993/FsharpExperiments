@@ -3,6 +3,12 @@ namespace FsharpExperiments.Code
 module Euler1 = 
     let solve (start, quantity) = 
         [start..quantity] |> List.filter(fun x -> x % 5 = 0 || x % 3 = 0) |> List.sum
+        
+module Euler2 = 
+    let private fibSeqGenerator() =  Seq.unfold(fun (x, y) -> Some(x, (y, x + y))) (0,1)
+
+    let solve(quantity : int) =
+        fibSeqGenerator() |>  Seq.takeWhile(fun x -> x < quantity) |> Seq.filter(fun x -> x % 2 = 0) |> Seq.sum
 
 module Euler7 =
     let private isPrime(num : int) =
