@@ -15,7 +15,7 @@ module `` Euler solution tests `` =
     
     [<Fact>]
     let ``Euler 3 test``() =
-        Euler3.solve(13195L) |>  should equal 29L
+        Euler3.solve(600851475143L) |>  should equal 6857L
     
 
     [<Fact>]

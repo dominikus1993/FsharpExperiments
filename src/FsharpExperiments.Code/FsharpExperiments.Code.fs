@@ -20,7 +20,7 @@ module Euler3 =
         |num -> [2L..int64(sqrt (double num))] |> Seq.filter(fun x -> num % x = 0L) |> Seq.length = 0
     
     let solve(number : int64) =
-        [2L..(number - 1L)] |> Seq.filter(fun x -> number % x = 0L) |> Seq.filter(fun x -> isPrime(x)) |> Seq.max
+        [2L..(int64(sqrt (double number)))] |> Seq.filter(fun x -> number % x = 0L) |> Seq.filter(fun x -> isPrime(x)) |> Seq.max
 
 module Euler7 =
     let private isPrime(num : int) =
