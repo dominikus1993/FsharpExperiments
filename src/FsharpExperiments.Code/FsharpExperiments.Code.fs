@@ -70,3 +70,20 @@ module Euler8 =
 
     let solve(text: string) =
         text.ToCharArray() |> Array.toSeq |> Seq.map(fun x -> int64(x.ToString())) |> getProduct
+
+module Euler9 = 
+    let generator _from _to = 
+        seq {
+            for a in [_from.._to] do 
+                for b in [_from.._to] do 
+                    for c in [_from.._to] do
+                        if (a + b + c) = _to then yield [a;b;c]
+        }
+    
+    let private isPythagoreanTriplet data =
+        match data |> List.sort with
+        |[a;b;c] -> a*a + b*b = c*c
+        |_ -> false
+
+    let solve _from _to =
+        generator <| _from <| _to |> Seq.filter isPythagoreanTriplet |> Seq.head |> Seq.fold((*)) 1
