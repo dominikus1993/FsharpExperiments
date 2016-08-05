@@ -1,5 +1,11 @@
 namespace FsharpExperiments.Code
 
+module EulerUtils = 
+    let isPrime = function
+        |num when num < 2L -> false
+        |num when num = 2L -> true
+        |num -> [2L..int64(sqrt (double num))] |> Seq.filter(fun x -> num % x = 0L) |> Seq.length = 0
+
 module Euler1 = 
     let solve (start, quantity) = 
         [start..quantity] |> List.filter(fun x -> x % 5 = 0 || x % 3 = 0) |> List.sum
@@ -13,14 +19,9 @@ module Euler2 =
 module Euler3 =
     let private findFactor(number : int64) = 
         [2L..int64(sqrt (double number))] |> Seq.filter(fun x -> number % x = 0L)
-
-    let private isPrime = function
-        |num when num < 2L -> false
-        |num when num = 2L -> true
-        |num -> [2L..int64(sqrt (double num))] |> Seq.filter(fun x -> num % x = 0L) |> Seq.length = 0
     
     let solve(number : int64) =
-        [2L..(int64(sqrt (double number)))] |> Seq.filter(fun x -> number % x = 0L) |> Seq.filter(fun x -> isPrime(x)) |> Seq.max
+        [2L..(int64(sqrt (double number)))] |> Seq.filter(fun x -> number % x = 0L) |> Seq.filter(fun x -> EulerUtils.isPrime(x)) |> Seq.max
 
 module Euler4 =
     let private isPalindrom chars1 chars2 =
@@ -53,16 +54,11 @@ module Euler6 =
         (int (squareSum nums)) - sumSquare nums
 
 module Euler7 =
-    let private isPrime(num : int) =
-        match num with
-        |num when num < 2 -> false
-        |num when num = 2 -> true
-        |num -> [2..int(sqrt (double num))] |> Seq.filter(fun x -> num % x = 0) |> Seq.length = 0
 
     let private generator = Seq.unfold(fun x -> Some(x, x + 1)) 0
 
     let solve(num : int32) =
-        generator |> Seq.filter(isPrime) |> Seq.nth(num - 1)
+        generator |> Seq.filter(fun x -> EulerUtils.isPrime(int64 x)) |> Seq.nth(num - 1)
 
 module Euler8 =
     let private getProduct(numbers : int64 seq) = 
@@ -87,3 +83,8 @@ module Euler9 =
 
     let solve _from _to =
         generator <| _from <| _to |> Seq.filter isPythagoreanTriplet |> Seq.head |> Seq.fold((*)) 1
+
+module Euler10 = 
+    let primeSeq quantity = [3L..2L..quantity] |> Seq.filter(EulerUtils.isPrime)
+        
+    let solve quantity = (primeSeq quantity |> Seq.sum) + 2L
