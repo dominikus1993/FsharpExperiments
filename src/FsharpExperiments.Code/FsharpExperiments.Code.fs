@@ -88,3 +88,12 @@ module Euler10 =
     let primeSeq quantity = [3L..2L..quantity] |> Seq.filter(EulerUtils.isPrime)
         
     let solve quantity = (primeSeq quantity |> Seq.sum) + 2L
+
+module Euler12 = 
+    let private triangulerNumberGenerator() = Seq.unfold(fun (x, y) -> Some(x, ([1L..y] |> Seq.sum, y + 1L))) (1L, 2L)
+
+    let private countFactors num = 
+        ([1L..(num / 2L + 1L)] |> Seq.filter(fun x -> num % x = 0L) |> Seq.length) + 1
+
+    let solve divisorQuantity =
+        triangulerNumberGenerator() |> Seq.filter(fun x -> countFactors x > divisorQuantity) |> Seq.head
