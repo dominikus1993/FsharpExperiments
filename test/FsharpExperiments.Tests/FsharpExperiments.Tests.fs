@@ -54,5 +54,5 @@ module `` Euler solution tests `` =
     [<Fact>]
     let ``Euler12 test``() = 
         Euler12.solve 5 |> should equal 28L
-        Euler12.solve 5 |> should equal 5537376230L
+        //Euler12.solve 5 |> should equal 5537376230L
 
