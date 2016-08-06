@@ -78,7 +78,7 @@ module Euler9 =
     
     let private isPythagoreanTriplet data =
         match data |> List.sort with
-        |[a;b;c] -> a*a + b*b = c*c
+        |[a;b;c] when a*a + b*b = c*c -> true
         |_ -> false
 
     let solve _from _to =
