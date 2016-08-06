@@ -16,6 +16,8 @@ let appReferences  =
 // version info
 let version = "0.1"  // or retrieve from CI server
 
+Target "FilesToBuildDir" (fun _ -> CopyFile buildDir "euler13.txt")
+
 // Targets
 Target "Clean" (fun _ ->
     CleanDirs [buildDir; deployDir]
@@ -43,6 +45,7 @@ Target "Deploy" (fun _ ->
 
 // Build order
 "Clean"
+  ==> "FilesToBuildDir"
   ==> "Build"
   ==> "Test"
   ==> "Deploy"

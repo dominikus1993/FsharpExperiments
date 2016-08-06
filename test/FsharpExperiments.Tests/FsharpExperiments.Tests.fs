@@ -2,6 +2,7 @@ namespace FsharpExperiments.Tests
 open Xunit
 open FsUnit.Xunit
 open FsharpExperiments.Code
+open System.IO
 
 module `` Euler solution tests `` = 
 
@@ -56,3 +57,7 @@ module `` Euler solution tests `` =
         Euler12.solve 5 |> should equal 28L
         //Euler12.solve 5 |> should equal 5537376230L
 
+    [<Fact>]
+    let ``Euler13 test``() =
+        let num = File.ReadAllLines("euler13.txt")
+        Euler13.solve num |> should equal "5373762303"

@@ -1,5 +1,5 @@
 namespace FsharpExperiments.Code
-
+open System
 module EulerUtils = 
     let isPrime = function
         |num when num < 2L -> false
@@ -97,3 +97,9 @@ module Euler12 =
 
     let solve divisorQuantity =
         triangulerNumberGenerator() |> Seq.filter(fun x -> countFactors x > divisorQuantity) |> Seq.head
+
+module Euler13 =
+    let private numFromString(text: string[]) = text |> Array.map(fun x -> bigint.Parse(x.ToString())) |> Array.sum
+
+    let solve text =
+        (numFromString text).ToString().Substring(1, 10)
