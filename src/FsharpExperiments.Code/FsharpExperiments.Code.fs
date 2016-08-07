@@ -103,3 +103,16 @@ module Euler13 =
 
     let solve text =
         (numFromString text).ToString().Substring(1, 10)
+
+module Euler14 = 
+    let private sequenceMapper = function
+        |num when num % 2 = 0 -> num / 2
+        |num when num % 2 = 1 -> 3 * num + 1
+        |_ -> 1
+
+    let private sequenceGen num = Seq.unfold(fun x -> if x = 1 then None else Some(x, sequenceMapper x)) num
+
+    let private countLength num = sequenceGen num |> Seq.length
+
+    let solve nums =
+        nums |> Seq.map(fun x -> (x ,countLength x)) |> Seq.maxBy(fun (n, l) -> l)

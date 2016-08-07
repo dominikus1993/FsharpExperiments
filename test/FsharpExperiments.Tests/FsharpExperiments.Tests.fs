@@ -61,3 +61,8 @@ module `` Euler solution tests `` =
     let ``Euler13 test``() =
         let num = File.ReadAllLines("euler13.txt")
         Euler13.solve num |> should equal "5373762303"
+
+    [<Fact>]
+    let ``Euler14 test``() =
+        let (n, l) = Euler14.solve [1..999999]
+        n |> should equal 910107
