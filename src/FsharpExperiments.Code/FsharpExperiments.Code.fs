@@ -119,16 +119,26 @@ module Euler14 =
 
 
 module Euler15 =
-    let factorial (num: bigint) =
+    let private factorial (num: bigint) =
         let rec factorialTail (n: bigint) (acc: bigint) =
             match n with
             |n when n = 0I -> acc
             |n -> factorialTail (n - 1I) (acc * n)
         factorialTail num 1I
     
-    let countCombinationsQuantity n k =
+    let private countCombinationsQuantity n k =
         (factorial n) / ((factorial k) * (factorial (n - k)))
 
     let solve x y =
         countCombinationsQuantity (x + y) x
+
+module Euler16 =
+    let countPow num =
+        pown 2I num
+    
+    let countSum num =
+        (countPow num).ToString().ToCharArray() |> Array.map(fun x -> int (x.ToString())) |> Array.sum
+    
+    let solve num =
+        countSum num
 

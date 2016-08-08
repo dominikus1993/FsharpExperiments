@@ -72,3 +72,8 @@ module `` Euler solution tests `` =
         Euler15.solve 2I 2I |> should equal 6I
         Euler15.solve 20I 20I |> should equal 137846528820I
 
+    [<Fact>]
+    let ``Euler16 test``() =
+        Euler16.solve 15 |> should equal 26
+        Euler16.solve 1000 |> should equal 1366
+
