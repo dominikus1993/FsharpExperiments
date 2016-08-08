@@ -116,3 +116,19 @@ module Euler14 =
 
     let solve nums =
         nums |> Seq.map(fun x -> (x ,countLength x)) |> Seq.maxBy(fun (n, l) -> l)
+
+
+module Euler15 =
+    let factorial (num: bigint) =
+        let rec factorialTail (n: bigint) (acc: bigint) =
+            match n with
+            |n when n = 0I -> acc
+            |n -> factorialTail (n - 1I) (acc * n)
+        factorialTail num 1I
+    
+    let countCombinationsQuantity n k =
+        (factorial n) / ((factorial k) * (factorial (n - k)))
+
+    let solve x y =
+        countCombinationsQuantity (x + y) x
+
