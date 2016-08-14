@@ -142,3 +142,13 @@ module Euler16 =
     let solve num =
         countSum num
 
+module Euler20 = 
+    let rec factorial num acc = 
+        match num with
+            | num when num = 0I -> acc
+            | num -> factorial (num - 1I) (acc * num)
+
+    let solve num = 
+        (factorial(num)(1I)).ToString() |> Seq.map(fun x -> System.Int32.Parse(x.ToString())) |> Seq.sum
+    
+
