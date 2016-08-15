@@ -1,6 +1,11 @@
 namespace FsharpExperiments.Code.Others
 
 module PList =
+    let rec map func = function
+        | [] -> []
+        | head :: tail -> 
+            func(head) :: (map func tail)
+
     let pmap func list =
         list |> List.map(fun x -> async { return func x }) |> Async.Parallel |> Async.RunSynchronously |> Array.toList
     
