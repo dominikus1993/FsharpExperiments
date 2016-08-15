@@ -60,3 +60,15 @@ namespace FsharpExperiments.Code.NinetyNine
 
         let solve<'a when 'a : equality>(collection : 'a list) : 'a list list =
             collection |> List.fold(fun acc x -> pack(x, acc)) [] |> List.rev
+
+    module Problem10 = 
+        let rec count acc data =
+            match data with 
+            | [] -> acc |> List.rev
+            | head :: tail -> 
+                let sign = head |> List.head
+                let quantity = head |> List.length
+                count ((quantity, sign) :: acc) (tail)
+
+        let solve (text: string) =
+            text |> List.ofSeq |> Problem9.solve |> count []
