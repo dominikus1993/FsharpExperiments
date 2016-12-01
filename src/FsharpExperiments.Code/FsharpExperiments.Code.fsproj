@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="FsharpExperiments.Code.fs" />
     <Compile Include="NinetyNine.fs" />
+    <Compile Include="AdventOfCode.fs" />
     <None Include="Script.fsx" />
     <Compile Include="Others.fs" />
   </ItemGroup>
